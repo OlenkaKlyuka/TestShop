@@ -9,31 +9,27 @@ public class PageElement implements WebElement {
     private WebElement webElement;
     private String name;
 
-    PageElement(WebElement webElement) {
+    private PageElement(WebElement webElement) {
         this.webElement = webElement;
     }
 
     @Override
     public void click() {
-        System.out.println("Do " + name);
         webElement.click();
     }
 
     @Override
     public void submit() {
-        System.out.println("Submit " + name);
         webElement.submit();
     }
 
     @Override
     public void sendKeys(CharSequence... charSequences) {
-        System.out.println("Write " + name);
         webElement.sendKeys(charSequences);
     }
 
     @Override
     public void clear() {
-        System.out.println("Clear " + name);
         webElement.clear();
     }
 
@@ -49,7 +45,6 @@ public class PageElement implements WebElement {
 
     @Override
     public boolean isSelected() {
-        System.out.println("Select " + name);
         return webElement.isSelected();
     }
 
@@ -65,13 +60,11 @@ public class PageElement implements WebElement {
 
     @Override
     public List<WebElement> findElements(By by) {
-        System.out.println("Select " + name);
         return null;
     }
 
     @Override
-    public WebElement findElement(By by) {
-        System.out.println("Element " + name);
+    public WebElement findElement(By by) {;
         return new PageElement(webElement.findElement(by));
     }
 
@@ -122,4 +115,5 @@ public class PageElement implements WebElement {
     public boolean check() {
         return this.exists();
     }
+
 }

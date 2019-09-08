@@ -16,10 +16,9 @@ public class ShoppingBO {
 
         ShoppingPage shoppingPage = new ShoppingPage();
         waiter.waitForProduct(driver);
-        shoppingPage.jsGetTextDescription(driver);
+        shoppingPage.pressOnItem(driver);
         waiter.waitForIt(driver);
-        //System.out.println("TRY: " + shoppingPage.getStaffDescription(driver));
-        shoppingPage.buyStaff(driver);
+        shoppingPage.pressBuyButton(driver);
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -27,7 +26,7 @@ public class ShoppingBO {
         }
 
         try {
-            shoppingPage.buyStaff(driver);
+            shoppingPage.pressBuyButton(driver);
             System.out.println("Button is present");
         } catch (org.openqa.selenium.WebDriverException e) {
             e.printStackTrace();

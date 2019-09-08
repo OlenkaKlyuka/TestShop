@@ -18,7 +18,6 @@ public class LoginBO {
         loginPage.enterLogin(user.getLogin());
         loginPage.enterPassword(user.getPassword());
         loginPage.pressSubmitLogin();
-        loginPage.validateLogin();
         waiter.waitForPersonalAccountPage(driver);
     }
 }

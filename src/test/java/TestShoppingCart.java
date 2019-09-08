@@ -1,9 +1,7 @@
-
 import businessObjects.ShoppingBO;
 import driver.WebDriverFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-
 
 public class TestShoppingCart {
 
@@ -13,7 +11,6 @@ public class TestShoppingCart {
         ShoppingBO shoppingPage = new ShoppingBO();
         shoppingPage.doShopping();
     }
-
 
     @AfterClass
     public void tearDown() {
