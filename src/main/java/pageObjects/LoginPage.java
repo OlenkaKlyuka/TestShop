@@ -7,38 +7,23 @@ import org.testng.Assert;
 
 public class LoginPage extends PageModel {
 
-    @Name("login")
-    @FindBy(xpath = "//body/div/div/div/div/div/form/div/input[@name=\"login\"]")
-    private PageElement loginElement;
+    private String loginInputField = "#signin_form > div:nth-child(1) > input";
+    private String passwordInpitField = "#signin_form > div:nth-child(2) > input";
+    private String submitButton = "#signin_form > div.signup-submit > button > span";
+    private PageModel pageModel = new PageModel();
 
-    @Name("password")
-    @FindBy(xpath = "//body/div/div/div/div/div/form/div/input[@name=\"password\"]")
-    private PageElement passwordElement;
-
-    @Name("submit")
-    @FindBy(xpath = "//body/div/div/div/div/div/form/div/button[@type=\"submit\"]")
-    private PageElement loginSubmitButton;
-
-    @Name("invalids password")
-    @FindBy(xpath = "//div[@name=\"app-message\"]/div/a/img")
-    private PageElement wrongPasswordMessage;
-
-    @Name(" enter login")
     public void enterLogin(String login) {
-        loginElement.sendKeys(login);
+        System.out.println("Input login");
+        pageModel.sendKeysWithJavasriptExecutor(driver, loginInputField, login);
     }
 
-    @Name(" enter pass")
     public void enterPassword(String password) {
-        passwordElement.sendKeys(password);
+        System.out.println("Input password");
+        pageModel.sendKeysWithJavasriptExecutor(driver, passwordInpitField, password);
     }
 
-    @Name(" press submit")
     public void pressSubmitLogin() {
-        loginSubmitButton.click();
-    }
-
-    public void validateLogin() {
-        Assert.assertFalse(wrongPasswordMessage.exists());
+        System.out.println("Submit user credentials");
+        pageModel.clickWithJavasriptExecutor(driver, submitButton);
     }
 }
