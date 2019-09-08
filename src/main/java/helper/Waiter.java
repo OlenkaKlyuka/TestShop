@@ -28,6 +28,22 @@ public class Waiter {
         });
     }
 
+
+
+    public void waitForProduct(WebDriver driver) {
+
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(30, TimeUnit.SECONDS)
+                .pollingEvery(10, TimeUnit.SECONDS)
+                .ignoring(NoSuchElementException.class);
+
+        WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(By.xpath("/html/body/app-root/div/div[1]/app-rz-main-page/div/main/main-page-content/goods-sections/div[2]/goods-section/ul/li[1]/div/a[2]"));
+            }
+        });
+    }
+
     public void waitForIt(WebDriver driver) {
         driver.manage().timeouts().implicitlyWait(DEFAULT_TIME_OUT, TimeUnit.SECONDS);
     }
