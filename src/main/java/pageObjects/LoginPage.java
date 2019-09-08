@@ -10,6 +10,9 @@ public class LoginPage extends PageModel {
     private String loginInputField = "#signin_form > div:nth-child(1) > input";
     private String passwordInpitField = "#signin_form > div:nth-child(2) > input";
     private String submitButton = "#signin_form > div.signup-submit > button > span";
+    private String validatePersonalAccount = "#personal_information > header > h1";
+
+
     private PageModel pageModel = new PageModel();
 
     public void enterLogin(String login) {
@@ -25,5 +28,11 @@ public class LoginPage extends PageModel {
     public void pressSubmitLogin() {
         System.out.println("Submit user credentials");
         pageModel.clickWithJavasriptExecutor(driver, submitButton);
+    }
+
+    public void checkPersonalAccount() {
+        System.out.println("Check login succeed");
+        pageModel.checkTextWithJavasriptExecutor(driver, validatePersonalAccount,"Особисті дані");
+
     }
 }

@@ -7,6 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import org.openqa.selenium.InvalidElementStateException;
 
 import static helper.Constants.PATH_TO_INVALID_USERS;
 
@@ -25,9 +26,9 @@ public class TestInvalidUserData {
         LoginBO loginPage = new LoginBO();
         try {
             loginPage.login(new UserModel(user.getLogin(), user.getPassword()));
+            throw new InvalidElementStateException();
         } catch (org.openqa.selenium.TimeoutException e) {
             System.out.println("Incorrect password failed. Login is not performed.");
-            System.out.println(e.getMessage());
         }
     }
 

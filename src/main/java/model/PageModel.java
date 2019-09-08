@@ -3,8 +3,7 @@ package model;
 import org.openqa.selenium.JavascriptExecutor;
 import driver.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
+import org.testng.Assert;
 
 public class PageModel {
     public WebDriver driver = WebDriverFactory.getDriver();
@@ -20,4 +19,12 @@ public class PageModel {
         System.out.println("click with JS Executor");
         js.executeScript("document.querySelector('" + selector + "').value='" + value + "';");
     }
+
+    public void checkTextWithJavasriptExecutor(WebDriver driver, String selector, String text) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        System.out.println("check text with JS Executor");
+        String actualText = js.executeScript("return document.querySelector('" + selector + "').innerHTML").toString();
+        Assert.assertEquals(text, actualText);
+    }
+
 }

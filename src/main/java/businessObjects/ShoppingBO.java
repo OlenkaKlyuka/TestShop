@@ -3,6 +3,7 @@ package businessObjects;
 import driver.WebDriverFactory;
 import helper.Waiter;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.InvalidElementStateException;
 import pageObjects.ShoppingPage;
 
 import static helper.Constants.PATH_TO_SHOP_PAGE;
@@ -19,23 +20,13 @@ public class ShoppingBO {
         shoppingPage.pressOnItem(driver);
         waiter.waitForIt(driver);
         shoppingPage.pressBuyButton(driver);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waiter.waitForIt(driver);
 
         try {
             shoppingPage.pressBuyButton(driver);
-            System.out.println("Button is present");
+            throw new InvalidElementStateException("Product was not previously added to bucket");
         } catch (org.openqa.selenium.WebDriverException e) {
-            e.printStackTrace();
             System.out.println("Button is not present");
-        }
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }

@@ -3,5 +3,4 @@
 target/
 /build/
 lib/
-pom.xml
 *.exe

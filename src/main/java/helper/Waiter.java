@@ -6,19 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.NoSuchElementException;
-
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import static helper.Constants.DEFAULT_TIME_OUT;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class Waiter {
 
     public void waitForPersonalAccountPage(WebDriver driver) {
 
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(30, TimeUnit.SECONDS)
-                .pollingEvery(10, TimeUnit.SECONDS)
+                .withTimeout(30, SECONDS)
+                .pollingEvery(10, SECONDS)
                 .ignoring(NoSuchElementException.class);
 
         WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
@@ -28,13 +27,11 @@ public class Waiter {
         });
     }
 
-
-
     public void waitForProduct(WebDriver driver) {
 
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(30, TimeUnit.SECONDS)
-                .pollingEvery(10, TimeUnit.SECONDS)
+                .withTimeout(30, SECONDS)
+                .pollingEvery(10, SECONDS)
                 .ignoring(NoSuchElementException.class);
 
         WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
@@ -45,7 +42,7 @@ public class Waiter {
     }
 
     public void waitForIt(WebDriver driver) {
-        driver.manage().timeouts().implicitlyWait(DEFAULT_TIME_OUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(DEFAULT_TIME_OUT, SECONDS);
     }
 }
 
