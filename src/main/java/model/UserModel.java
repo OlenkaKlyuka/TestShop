@@ -1,7 +1,4 @@
-package Model;
-
-import helper.PropertyProvider;
-import pageObjects.LoginPage;
+package model;
 
 import static helper.Constants.PATH_TO_SIGN_IN_PAGE;
 

@@ -1,6 +1,6 @@
 package businessObjects;
 
-import Model.UserModel;
+import model.UserModel;
 import driver.WebDriverFactory;
 import helper.Waiter;
 import org.openqa.selenium.WebDriver;

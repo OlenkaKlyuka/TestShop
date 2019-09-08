@@ -1,7 +1,7 @@
 package pageObjects;
 
-import Model.PageModel;
-import PageElement.*;
+import model.PageModel;
+import pageElement.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 

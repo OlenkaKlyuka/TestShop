@@ -1,11 +1,10 @@
 package pageObjects;
 
-import PageElement.Name;
-import PageElement.PageElement;
+import pageElement.Name;
+import pageElement.PageElement;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class PersonalAccountPage {
 

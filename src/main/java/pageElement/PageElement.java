@@ -1,4 +1,4 @@
-package PageElement;
+package pageElement;
 
 import org.openqa.selenium.*;
 
@@ -115,7 +115,7 @@ public class PageElement implements WebElement {
         }
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 

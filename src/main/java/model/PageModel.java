@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import PageElement.PageDecorator;
+import pageElement.PageDecorator;
 import driver.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
